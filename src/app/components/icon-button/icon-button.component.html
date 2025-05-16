@@ -1,0 +1,11 @@
+<button tabindex="-1"
+    mat-icon-button
+    [matTooltip]="(tooltip || '') | translate"
+    [matTooltipPosition]="'below'"
+    [matTooltipDisabled]="!tooltip"
+    [matTooltipClass]="'tooltip-edit'"
+    [class]="class ? class : ''"
+    >
+    @if (icon) {<mat-icon>{{icon}}</mat-icon>}
+    @else if (svgIcon) {<mat-icon [svgIcon]="svgIcon"></mat-icon>}
+</button>

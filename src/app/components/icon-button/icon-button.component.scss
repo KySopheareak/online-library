@@ -1,0 +1,188 @@
+@use "../../../styles/variables.scss" as var;
+@use "sass:color";
+
+
+/* -------------------------------------------------------- */
+/* LOCAL CLASS */
+/* -------------------------------------------------------- */
+
+:host {
+    display: inline-block;
+}
+
+
+/* -------------------------------------------------------- */
+/* CLASS INPUT FROM PARENT COMPONENT */
+/* -------------------------------------------------------- */
+
+.ico-outline {
+    border: none !important;
+    outline: none !important;
+
+
+    button {
+        background-color: transparent !important;
+        color: var.$primary-color !important;
+        border: 1.5px solid var.$primary-color !important;
+        width: unset !important;
+        height: unset !important;
+        padding: 2px !important;
+
+        svg[fill="none"] {
+            path {
+                stroke: var.$primary-color;
+            }
+        }
+
+        svg:not([fill="none"]) {
+            path {
+                fill: var.$primary-color;
+            }
+        }
+    }
+}
+
+.ico-fill {
+    border: none !important;
+    outline: none !important;
+
+    button {
+        background-color: var.$primary-color !important;
+        border: none;
+        outline: none;
+        width: unset !important;
+        height: unset !important;
+        padding: 5px !important;
+
+        mat-icon {
+            $size: 18px;
+            width: $size;
+            height: $size;
+            font-size: $size;
+        }
+
+        span {
+            text-decoration: underline;
+        }
+
+        svg[fill="none"] {
+            path {
+                stroke: var.$primary-color;
+            }
+        }
+
+        svg:not([fill="none"]) {
+            path {
+                fill: var.$primary-color;
+            }
+        }
+    }
+}
+
+.size-sm {
+    $size: 20px;
+
+    button {
+        width: $size !important;
+        height: $size !important;
+        padding: 5px !important;
+
+        mat-icon {
+            width: calc($size - 4px) !important;
+            height: calc($size - 4px) !important;
+            font-size: calc($size - 4px) !important;
+        }
+    }
+}
+
+
+/* -------------------------------------------------------- */
+/* CLASS BUILDER (FUNC, MIXIN) */
+/* -------------------------------------------------------- */
+
+@function contrast-color($color) {
+    $lightness: color.channel($color, "lightness", $space: hsl);
+
+    @if ($lightness > 70) {
+        @return black;
+
+    } @else {
+        @return white;
+    }
+}
+
+@mixin button-variant($name, $color: null) {
+    button {
+        &.ico-#{$name} {
+            background-color: transparent !important;
+            border: none;
+            outline: none;
+
+            svg[fill="none"] {
+                path {
+                    stroke: $color !important;
+                }
+            }
+
+            svg:not([fill="none"]) {
+                path {
+                    fill: $color !important;
+                }
+            }
+        }
+
+        &.ico-outline.ico-#{$name} {
+            background-color: transparent !important;
+            outline: none;
+            border: 1.5px solid $color !important;
+
+            svg[fill="none"] {
+                path {
+                    stroke: $color !important;
+                }
+            }
+
+            svg:not([fill="none"]) {
+                path {
+                    fill: $color !important;
+                }
+            }
+        }
+
+        &.ico-fill.ico-#{$name} {
+            background-color: $color !important;
+            border: none;
+            outline: none;
+
+            svg[fill="none"] {
+                path {
+                    // stroke: if($color != null, $color, contrast-color($color)) !important;
+                    stroke: white !important;
+                }
+            }
+
+            svg:not([fill="none"]) {
+                path {
+                    // fill: if($color != null, $color, contrast-color($color)) !important;
+                    fill: white !important;
+                }
+            }
+        }
+    }
+}
+
+
+// GENERATE BUTTON VARIANT
+// @description: Generate button variant for icon button component;
+// @usage: these classes will have a prefix of "ico-" and will be used in the icon button component;
+// --------------------------------------------------------
+@include button-variant("acknowledge", var.$acknowledge);
+@include button-variant("forward", var.$forward);
+@include button-variant("complete", var.$complete);
+@include button-variant("delay", var.$delay);
+@include button-variant("save-and-create", var.$save-and-create);
+@include button-variant("clear", var.$clear);
+@include button-variant("print", var.$print);
+@include button-variant("export", var.$export);
+@include button-variant("closed", var.$closed);
+@include button-variant("confirmed", var.$confirmed);

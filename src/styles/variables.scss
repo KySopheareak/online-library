@@ -1,0 +1,54 @@
+// 1	Primary	--mat-sys-primary, --mat-sys-on-primary
+// 2	Surface	--mat-sys-surface, --mat-sys-on-surface
+// 3	Error	--mat-sys-error, --mat-sys-on-error
+// 4	Outline	--mat-sys-outline, --mat-sys-outline-variant
+
+$primary-color: var(--mat-sys-primary);
+
+$border-color: #0000000F;
+$form-border-color: #7179704D;
+$form-label-color: #616161;
+$form-disabled-color: #a3a3a315;
+$form-disabled-text-color: #00000078;
+
+$inter-font-family: "InterRegular";
+$josefin-font-family: "JosefinSansRegular";
+$btb-font-family: "KhmerOSBattambang";
+
+$primary-font-family: $inter-font-family, $josefin-font-family, $btb-font-family;
+$input-font-family: "Roboto", $btb-font-family;
+
+$dark-text-color: #202325;
+$light-text-color: #72777A;
+$primary-box-shadow: rgb(149 157 165 / 10%) 0px 8px 24px;
+
+/* STATUS */
+$draft: #777777;
+$confirmed: #4d5081;
+$pending: #ffb323;
+$submitted: #4c2aa7;
+$approved: #17ad14;
+$rejected: #d11a1a;
+$returned: #d65900;
+$paid: #165fb3;
+$disabled: #a3a3a3a6;
+$suspended: #d76234;
+$closed: #680808;
+$allocate: #4A148C;
+
+/* BUTTON */
+$acknowledge:#23C16B;
+$forward:#6B4EFF;
+$complete: #23C16B;
+$delay: #FFB323;
+$save-and-create: #239EAB;
+$clear: white;
+$print: #48A7F8;
+$export: #239EAB;
+$reset: #239EAB;
+$edit: #FFB323;
+$delete: #FF5247;
+
+/* Basic Color */
+$color-black: #090A0A;
+$color-red: #E93D40;

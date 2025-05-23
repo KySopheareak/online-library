@@ -13,7 +13,7 @@ export const routes: Routes = [
             },
             {
                 path: 'list',
-                loadComponent: () => import('./routes/list/list.component').then(c => c.ListComponent)
+                loadComponent: () => import('./routes/list/routes/list.component').then(c => c.ListComponent)
             }
         ]
     }

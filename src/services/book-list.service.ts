@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseCrudService } from './base-crud.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -7,6 +8,12 @@ import { BaseCrudService } from './base-crud.service';
 export class BookListService extends BaseCrudService<any> {
     constructor() {
         super();
-        this.path = '/books';
+        this.path = '/book';
+    }
+
+    getImageUrl(id: string): Observable<any> {
+      return this.httpClientService.getJSON(`/file/${id}`, {
+        isAlertError: true,
+      });
     }
 }

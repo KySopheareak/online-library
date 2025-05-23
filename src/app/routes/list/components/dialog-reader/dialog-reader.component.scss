@@ -1,0 +1,33 @@
+.sub-name {
+  color: gold !important;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+.paragraph {
+  color: #FFFFFF;
+  margin-left: 15px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8d8b8b;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #535151;
+  cursor: pointer;
+}

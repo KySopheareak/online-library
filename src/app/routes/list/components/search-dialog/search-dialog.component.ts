@@ -3,18 +3,24 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { BookListService } from '../../../../../services/book-list.service';
 import { lastValueFrom } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { StaticFilePipe } from '../../../../pipes/static-file.pipe';
+import { SafePipe } from '../../../../pipes/safe.pipe';
 
 @Component({
   selector: 'app-search-dialog',
   imports: [
+    CommonModule,
     MatInputModule,
     ReactiveFormsModule
   ],
   templateUrl: './search-dialog.component.html',
-  styleUrl: './search-dialog.component.scss'
+  styleUrl: './search-dialog.component.scss',
+  providers: [StaticFilePipe, SafePipe]
 })
 export class SearchDialogComponent {
   private _bookService = inject(BookListService);
+  _staticFile = inject(StaticFilePipe);
   searchCtrl = new FormControl('');
   data: any[] = [];
 

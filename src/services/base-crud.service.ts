@@ -18,7 +18,7 @@ export class BaseCrudService<T> {
   }
 
   getMany(data?: { q?: string, page?: number, limit?: number, orderBy?: string, order?: -1 | 1, [key: string]: any }) {
-    return this.httpClientService.getJSON<BaseDatatable<T>>(this.path, { data, isAlertError: true, isLoading: true });
+    return this.httpClientService.postJSON<BaseDatatable<T>>(this.path, { data, isAlertError: true, isLoading: true });
   }
 
   getById(_id: string, data?: {[key: string]: any}) {

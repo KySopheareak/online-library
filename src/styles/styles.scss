@@ -197,3 +197,45 @@ body {
   border-radius: 15px !important;
   max-height: 35px !important;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8d8b8b;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #535151;
+  cursor: pointer;
+}
+  
+.sub-card {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-items: center;
+  height: 170px; 
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: #53515151;
+  }
+  .sub-image {
+    height: 150px;
+    width: 100px;
+    background-size: cover;
+  }
+}

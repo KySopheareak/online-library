@@ -3,6 +3,10 @@ import { NavMenuComponent } from './routes/nav-menu/nav-menu.component';
 
 export const routes: Routes = [
     {
+        path: 'login',
+        loadComponent: () => import('./routes/login/login.component').then(c => c.LoginComponent)
+    },
+    {
         path: '',
         component: NavMenuComponent,
         children: [

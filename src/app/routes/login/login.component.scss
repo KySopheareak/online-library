@@ -261,7 +261,7 @@ input {
 
 .star {
   position: absolute;
-  top: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.1);
   left: 50%;
   width: 4px;
   height: 4px;
@@ -282,6 +282,7 @@ input {
 }
 
 @keyframes animate {
+  /* The rotation value of 315deg is used to create a diagonal movement effect for the stars */
   0% {
     transform: rotate(315deg) translateX(0);
     opacity: 1;
@@ -296,7 +297,7 @@ input {
     opacity: 0;
   }
 }
-
+// Star 1: Appears immediately with a short animation duration for a quick effect.
 .star:nth-child(1) {
   top: 0;
   right: 0;
@@ -305,6 +306,7 @@ input {
   animation-duration: 1s;
 }
 
+// Star 2: Delayed slightly to create a staggered effect, with a longer animation duration for a slower movement.
 .star:nth-child(2) {
   top: 0;
   right: 100px;
@@ -313,6 +315,7 @@ input {
   animation-duration: 3s;
 }
 
+// Star 3: Significant delay and medium duration to add variety to the animation timing.
 .star:nth-child(3) {
   top: 0;
   right: 220px;
@@ -321,6 +324,7 @@ input {
   animation-duration: 2.75s;
 }
 
+// Star 4: Moderate delay and duration to balance the overall animation sequence.
 .star:nth-child(4) {
   top: 0;
   right: -220px;

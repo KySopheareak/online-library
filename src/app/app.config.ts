@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
   providers: [ provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()), // Enable DI for interceptors
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     provideAnimationsAsync(),
     provideTranslateService({
       defaultLanguage: 'en',
@@ -23,5 +23,5 @@ export const appConfig: ApplicationConfig = {
         useFactory: httpLoaderFactory,
         deps: [HttpClient],
       },
-     }), provideAnimationsAsync()]
+     })]
 };

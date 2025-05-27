@@ -7,7 +7,7 @@
         <strong>Search</strong>
     </div>
     <div class="nav-item">
-        <div class="title">
+        <div class="title" [matMenuTriggerFor]="menu">
             <strong>Category</strong>
         </div>
         <div class="title">
@@ -17,7 +17,13 @@
             <strong>About</strong>
         </div>
         <mat-icon>shopping_cart</mat-icon>
-        <mat-icon>more_vert</mat-icon>
+        <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onLogout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+</mat-menu>
     </div>
 </div>
 <router-outlet />

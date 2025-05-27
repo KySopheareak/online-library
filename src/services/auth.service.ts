@@ -38,32 +38,13 @@ export class AuthService {
     }
 
     login(data: Login) {
-        return this.httpClientService
-            .postJSON<{ user: User } & UserToken>('/auth/user/login', {
+        return this.httpClientService.postJSON<any>('/user/login', {
                 data,
                 isLoading: true,
-            })
-            .pipe(
-                map((res) => {
-                    this.localStorageService.set(
-                        LocalStorageEnum.Token,
-                        res.token
-                    );
-                    this.localStorageService.set(
-                        LocalStorageEnum.RefreshToken,
-                        res.refreshToken
-                    );
-                    this.localStorageService.set(
-                        LocalStorageEnum.UserId,
-                        res.user._id!
-                    );
-                    this.localStorageService.set(
-                        LocalStorageEnum.ForceChangePassword,
-                        !!res.user.forceChangePassword ? '1' : ''
-                    );
-                    this.markForceChangePasswordChange();
-                    this.markStatusChange();
-                    return res;
+            }).pipe(map((res) => {
+                  this.localStorageService.set(LocalStorageEnum.Token, res.token);
+                  this.localStorageService.set(LocalStorageEnum.UserId, res.user._id!);
+                  return res;
                 })
             );
     }
@@ -96,6 +77,19 @@ export class AuthService {
                 );
                 this.markForceChangePasswordChange();
                 return user;
+            })
+        );
+    }
+
+    signUp(data: Login) {
+        return this.httpClientService.postJSON<any>('/user/register', {
+            data,
+            isLoading: true,
+        }).pipe(
+            map((res) => {
+                this.localStorageService.set(LocalStorageEnum.Token, res.token);
+                this.localStorageService.set(LocalStorageEnum.UserId, res.user._id!);
+                return res;
             })
         );
     }
@@ -133,7 +127,7 @@ export class AuthService {
         this.authChange$.next(this._isAuth);
     }
 
-    private get _isAuth(): boolean {
+    get _isAuth(): boolean {
         return this.localStorageService.get(LocalStorageEnum.Token) ||
             this.localStorageService.get(LocalStorageEnum.RefreshToken)
             ? true

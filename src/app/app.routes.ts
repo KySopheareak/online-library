@@ -1,11 +1,8 @@
 import { Routes } from '@angular/router';
 import { NavMenuComponent } from './routes/nav-menu/nav-menu.component';
+import { AuthGuard } from '../services/auth-guard.service';
 
 export const routes: Routes = [
-  {
-    path: '**',
-    loadComponent: () => import('./routes/login/login.component').then(c => c.LoginComponent)
-  },
   {
       path: 'login',
       loadComponent: () => import('./routes/login/login.component').then(c => c.LoginComponent)
@@ -13,6 +10,7 @@ export const routes: Routes = [
   {
       path: '',
       component: NavMenuComponent,
+      canActivate: [AuthGuard],
       children: [
           {
               path: '',

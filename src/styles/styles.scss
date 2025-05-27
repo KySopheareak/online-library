@@ -220,13 +220,13 @@ body {
   background: #535151;
   cursor: pointer;
 }
-  
+
 .sub-card {
   display: flex;
   flex-direction: row;
   gap: 15px;
   justify-items: center;
-  height: 170px; 
+  height: 170px;
   width: 100%;
   margin-bottom: 10px;
   cursor: pointer;
@@ -238,4 +238,18 @@ body {
     width: 100px;
     background-size: cover;
   }
+}
+
+.mat-mdc-menu-item {
+  font-family: "Arvo", serif !important;
+  font-weight: 400 !important;
+  font-size: medium !important;
+  width: 120px !important;
+  background-color: #FFFFFF !important;
+  margin: 0 !important;
+}
+.mat-mdc-menu-content {
+  background-color: #FFFFFF !important;
+  padding: 5px 0 !important;
+  padding-right: 0px !important;
 }
